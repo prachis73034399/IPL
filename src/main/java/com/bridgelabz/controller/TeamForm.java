@@ -4,6 +4,8 @@ package com.bridgelabz.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+
 
 import com.bridgelabz.model.Team;
 import com.bridgelabz.model.User;
@@ -21,10 +23,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-@RequestMapping("/countryForm1")
+@RequestMapping("/teamform.html")
 public class TeamForm 
 {
 	//autowiring helps to inject a specific object 
@@ -49,25 +52,30 @@ public class TeamForm
 	}
 
 
-	/*@RequestMapping(params = "update", method = RequestMethod.POST)
+	@RequestMapping(value = "teamform.html", method = RequestMethod.POST)
 	//update method will check for validation and save the country and return new countryList
-	public String update(Country country, BindingResult result, SessionStatus status)
+	/*public ModelAndView create(Team team, BindingResult result, SessionStatus status)
 	{
 		// validate method of countryValidator class is called for validation		
-		countryValidator.validate(country, result);
+		validator.teamvalidation(team, result);
 		if (result.hasErrors()) 
 		{
-			return "countryForm";
+			return "teamform";
 		}
 		else 
 		{
 			//saveCountry method of worldService class which has implementation in worldserviceImpl class is called 
-			worldService.saveCountry(country);
+			userService.saveteam(team);
 			status.setComplete();
-			return "redirect:countryList.html";
-		}
-	}*/
+			//return ;
+		}*/
+	
 
+	public ModelAndView getCountries() 
+	{
+		List<Team> teams=(List<Team>) userService.getAllTeams();
+		return new ModelAndView("iplteamlist","teams",teams);
+	}
 	/*@RequestMapping(params = "delete", method = RequestMethod.POST)
 	public String delete(Country country, BindingResult result, SessionStatus status)
 	{

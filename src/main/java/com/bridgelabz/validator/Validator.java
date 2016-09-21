@@ -1,5 +1,6 @@
 package com.bridgelabz.validator;
 
+import com.bridgelabz.model.Team;
 import com.bridgelabz.model.User;
 import com.bridgelabz.service.UserService;
 
@@ -7,6 +8,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 
 
@@ -21,18 +23,52 @@ public class Validator
 		{
 			errors.rejectValue("firstName", "validation.notnull", "must be > 0");
 		}
-		if (user.getLastName()!= null) 
+		/*if (user.getLastName()!= null) 
 		{
 			errors.rejectValue("lastname", "validation.notnull", "must be > 0");
-		}
+		}*/
 	
-		if (!errors.hasFieldErrors("userName")) {
+		/*if (!errors.hasFieldErrors("userName")) 
+		 * {
 			User existingUser = (User) userService.getUserByName(user.getUserName());
 			if (existingUser != null &&
-			(user.isNew() ||  user.getUserName() != existingUser.getUserName())) {
-			errors.rejectValue("name", "validation.exists", "exists");
+			(user.isNew() ||  user.getUserName() != existingUser.getUserName())) 
+			{
+				errors.rejectValue("name", "validation.exists", "exists");
 			}
+		}*/
+	}
+	
+	/*public void teamvalidation(Team team, Errors errors) 
+	{
+		if (team.getTeamName()!= null) 
+		{
+			errors.rejectValue("firstName", "validation.notnull", "must be > 0");
+		}
+		/*if (team.getLastName()!= null) 
+		{
+			errors.rejectValue("lastname", "validation.notnull", "must be > 0");
+		}*/
+	
+		/*if (!errors.hasFieldErrors("userName")) 
+		 * {
+			User existingUser = (User) userService.getUserByName(user.getUserName());
+			if (existingUser != null &&
+			(user.isNew() ||  user.getUserName() != existingUser.getUserName())) 
+			{
+				errors.rejectValue("name", "validation.exists", "exists");
 			}
+		}*/
+
+
+	public void teamvalidation(Team team, BindingResult result) 
+	{
+
+		if (team.getTeamName()!= null) 
+		{
+			result.rejectValue("firstName", "validation.notnull", "must be > 0");
+		}
+		
 	}
 
 }

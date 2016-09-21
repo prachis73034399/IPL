@@ -27,6 +27,10 @@ public class Team
 	@NotEmpty
 	@Size(min = 4, max = 20)
 	private String teamName;
+	
+	@NotEmpty
+	private String captainName;
+	
 	public Team () {}
 	public Team (Integer id, String teamname) 
 	{
@@ -58,6 +62,12 @@ public class Team
 	public void setTeamName(String userName) 
 	{
 		this.teamName = userName;
+	}
+	public String getCaptainName() {
+		return captainName;
+	}
+	public void setCaptainName(String captainName) {
+		this.captainName = captainName;
 	}
 
 }

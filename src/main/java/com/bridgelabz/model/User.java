@@ -5,8 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
+//import javax.validation.constraints.NotNull;
+//import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
@@ -24,13 +24,13 @@ public class User
 	
 	@NotEmpty
 	@Size(min=4, max=20)
-	private String userName;
+	public String userName;
 	
 	@NotEmpty
 	private String firstName;
 	
-	@NotEmpty
-	private String lastName;
+	/*@NotEmpty
+	private String lastName;*/
 	
 	@NotEmpty
 	@Size(min=4, max=8)
@@ -49,33 +49,38 @@ public class User
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Integer id)
+	{
 		this.id = id;
 	}
 
-	public String getUserName() {
+	public String getUserName()
+	{
 		return userName;
 	}
 
-	public void setUserName(String userName) {
+	public void setUserName(String userName) 
+	{
 		this.userName = userName;
 	}
 
-	public String getFirstName() {
+	public String getFirstName() 
+	{
 		return firstName;
 	}
 
-	public void setFirstName(String firstName) {
+	public void setFirstName(String firstName)
+	{
 		this.firstName = firstName;
 	}
 
-	public String getLastName() {
+	/*public String getLastName() {
 		return lastName;
 	}
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
-	}
+	}*/
 
 	public String getPassword() {
 		return password;

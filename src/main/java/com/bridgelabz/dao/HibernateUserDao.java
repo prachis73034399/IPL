@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import com.bridgelabz.model.Team;
 import com.bridgelabz.model.User;
 
@@ -18,6 +17,7 @@ import com.bridgelabz.model.User;
 @Repository("HibernateUserDao")
 public class HibernateUserDao implements UserDao 
 {
+
 	@Autowired
 	SessionFactory sessionFactory;
 	Session session;
@@ -27,7 +27,8 @@ public class HibernateUserDao implements UserDao
 		//calling method opensession for opening the session of sessionFactory assigning to the object of Session interface
 		session = sessionFactory.openSession();
 		session.beginTransaction();
-		Query query = session.createQuery("from User where name=:name").setParameter("name",userName);
+		Query query = session.createQuery("from User where userName=:userName").setParameter("userName",userName);
+		System.out.println("USERNAME is:"+userName);
 		List list = query.list();
 		return list;
 	}
@@ -64,6 +65,56 @@ public class HibernateUserDao implements UserDao
 		tr.commit();
 
 	}
+	
+	public void saveteam(Team team) 
+	{
+		//calling method opensession for opening the session of sessionFactory assigning to the object of Session interface
+		session = sessionFactory.openSession();
+		Transaction tr = session.beginTransaction();
+		session.save(team);
+		tr.commit();
+
+	}
+	
+	public Collection<Team> getAll()
+	{
+		//calling method opensession for opening the session of sessionFactory assigning to the object of Session interface
+		session = sessionFactory.openSession();
+		session.beginTransaction();
+		
+		Query query = session.createQuery("from Team");
+		List list = query.list();
+
+		return list;
+	}
+	
+	public Collection<User> getAlluser()
+	{
+		//calling method opensession for opening the session of sessionFactory assigning to the object of Session interface
+		session = sessionFactory.openSession();
+		session.beginTransaction();
+		
+		Query query = session.createQuery("from User");
+		List list = query.list();
+
+		return list;
+	}
+	
+	/*public void deleteById(int id)
+	{
+		session = sessionFactory.openSession();
+		Transaction tr = session.beginTransaction();
+	  
+	    User user ;
+
+	   // session = sessionFactory.getCurrentSession();
+	    user= (User)session.load(Country.class,id);
+	    session.delete(country);
+
+	    //This makes the pending delete to be done
+	    session.flush() ;
+	    tr.commit();
+	}*/
 
 	
 }

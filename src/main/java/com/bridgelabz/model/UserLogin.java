@@ -3,6 +3,7 @@ package com.bridgelabz.model;
 
 import javax.validation.constraints.Size;
 
+import org.codehaus.jackson.annotate.JsonSubTypes.Type;
 import org.hibernate.validator.constraints.NotEmpty;
 
 public class UserLogin 
@@ -14,6 +15,7 @@ public class UserLogin
 		
 	@NotEmpty
 	@Size(min=4, max=8)
+	
 	private String password;
 
 	public String getPassword()
