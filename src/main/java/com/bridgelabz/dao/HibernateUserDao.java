@@ -33,12 +33,24 @@ public class HibernateUserDao implements UserDao
 		return list;
 	}
 
+	public Collection<User> getUserByPassword(String password)
+	{
+		System.out.println("by name");
+		//calling method opensession for opening the session of sessionFactory assigning to the object of Session interface
+		session = sessionFactory.openSession();
+		session.beginTransaction();
+		Query query = session.createQuery("from User where password=:password").setParameter("password",password);
+		System.out.println("USERNAME is:"+password);
+		List list = query.list();
+		return list;
+	}
 	public Collection<User> getUserById(int userId) 
 	{
 		//calling method opensession for opening the session of sessionFactory assigning to the object of Session interface
 		session = sessionFactory.openSession();
 		// calling beginTransaction method of session interface
 		session.beginTransaction();
+		User user = new User();
 		//using create query method of session interface and storing it into Query interface object
 		Query query = session.createQuery("from User where id=:id").setParameter("id",userId);
 		List list = query.list();
@@ -81,10 +93,22 @@ public class HibernateUserDao implements UserDao
 		//calling method opensession for opening the session of sessionFactory assigning to the object of Session interface
 		session = sessionFactory.openSession();
 		session.beginTransaction();
-		
+		Team team = new Team();
 		Query query = session.createQuery("from Team");
 		List list = query.list();
 
+		return list;
+	}
+	
+	public Collection<Team> getTeamByName(String teamName)
+	{
+		System.out.println("by team name");
+		//calling method opensession for opening the session of sessionFactory assigning to the object of Session interface
+		session = sessionFactory.openSession();
+		session.beginTransaction();
+		Query query = session.createQuery("from Team");
+		System.out.println("USERNAME is:"+teamName);
+		List list = query.list();
 		return list;
 	}
 	

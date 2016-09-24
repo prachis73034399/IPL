@@ -14,6 +14,6 @@ public interface UserService
 	 public void saveUser(User user);
 	 public void saveteam(Team team); 
 	 boolean findByLogin(String userName, String password);
-	 public Collection<Team> getAllTeams();
+	 public Collection<Team>  getAllTeams();
 	 public Collection<User> getAllUser();
 }

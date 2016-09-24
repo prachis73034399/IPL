@@ -12,6 +12,7 @@
 	<mvc:annotation-driven/>
 	<!-- <context:component-scan base-package="metrolink.core"/> --> 
 	<context:component-scan base-package="com.bridgelabz"/>
+	<mvc:resources mapping="/index.jsp" location="/WEB-INF" /> 
 	
 	<!-- Configure JDBC Connection -->
 	<bean id="dataSource"

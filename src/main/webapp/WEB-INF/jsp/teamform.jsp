@@ -7,7 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form:form modelAttribute="team" action="signup.html" method="post">
+
+<form:form modelAttribute="team" action="teamformed" method="post">
 			<table>
 				<tr>
 					<td align="right" valign="bottom">
@@ -22,14 +23,14 @@
 							<td><h5>Team Name</h5></td>
 							<td>
 								<form:input path="teamName" size="20" maxlength="50" />
-								<%-- <form:errors path="name" cssClass="errors"/> --%>
+								<!-- <form:errors path="name" cssClass="errors"/> -->
 							</td>
 						</tr>
 						<tr>
 							<td><h5>Captain Name</h5></td>
 							<td>
 								<form:input path="captainName" size="8" maxlength="8" />
-								<%-- <form:errors path="area" cssClass="errors"/> --%>
+								<!-- <form:errors path="area" cssClass="errors"/> -->
 							</td>
 						</tr>
 						

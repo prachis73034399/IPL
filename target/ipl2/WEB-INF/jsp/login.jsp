@@ -6,68 +6,49 @@
 <html>
 <head>
 
-<title>Student Enrollment Login</title>
+
 </head>
-<body bgcolor="#6495ED">
-	<script src="jquery-1.8.3.js">
-		
-	</script>
-
-	<div class="container">
-		<div class="jumbotron">
-			<div>
-				<h1><font color="#FAF0E6">Welcome to Online Student Enrollment Login</font>></h1>
-				<p>Login to explore the complete features!</p>
-			</div>
-		</div>
-
-		<div></div>
-	</div>
-
-	<div class="col-lg-6 col-lg-offset-3">
-		<div class="well">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6">
-						<form:form id="myForm" method="post"
-							class="bs-example form-horizontal" commandName="studentLogin">
-							<fieldset>
-								<legend>Student Enrollment Login Form</legend>
-
-								<div class="form-group">
-								
-									<label for="userNameInput" class="col-lg-3 control-label">User
-										Name</label>
-									<div class="col-lg-9">
-										<form:input type="text" class="form-control" path="userName"
-											id="userNameInput" placeholder="User Name" />
-										<form:errors path="userName" cssClass="error" />
-									</div>
-								</div>
-
-								<div class="form-group">
-									<label for="passwordInput" class="col-lg-3 control-label">Password</label>
-									<div class="col-lg-9">
-										<form:input type="password" class="form-control"
-											path="password" id="passwordInput" placeholder="Password" />
-										<form:errors path="password" cssClass="error" />
-									</div>
-								</div>
-
-								<div class="col-lg-9 col-lg-offset-3">
-									<button class="btn btn-default">Cancel</button>
-
-									<button class="btn btn-primary">Login</button>
-								</div>
-
-							</fieldset>
-						</form:form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
+<body>
+	<h1> Login Form is here..</h1>
+	<form:form modelAttribute="userLogin" action="hieee.html" method="post">
+			<table>
+				
+				<tr>
+					<td>
+						<table class="silver">
+						
+						<tr>
+							<td><h5>User Name</h5></td>
+							<td>
+								<form:input path="userName" size="20" maxlength="50" />
+								<%-- <form:errors path="name" cssClass="errors"/> --%>
+							</td>
+						</tr>
+						<tr>
+							<td><h5>Password</h5></td>
+							<td>
+								<form:input path="password" size="8" maxlength="8" />
+								<%-- <form:errors path="area" cssClass="errors"/> --%>
+							</td>
+						</tr>
+					
+				<tr>
+					<td align="right" valign="bottom">
+						<button type="submit">Login</button>
+					 </td>
+				</tr>
+						<%-- <tr>
+							<td><h5>Last Name</h5></td>
+							<td>
+								<form:input path="lastName" size="12" maxlength="12" />
+								<form:errors path="populationLastUpdated" cssClass="errors"/>
+							</td>
+						</tr> --%>
+					
+			</table>
+		</td>
+	</tr>
+</table>
+</form:form>
 </body>
 </html>

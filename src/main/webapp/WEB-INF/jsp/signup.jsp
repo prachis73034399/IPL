@@ -12,7 +12,7 @@
 	</head>
 	<body>
 
-		<form:form modelAttribute="user" action="hi.html" method="post">
+		<form:form modelAttribute="userer" action="hi.html" method="post">
 			<table>
 				<tr>
 					<td align="right" valign="bottom">

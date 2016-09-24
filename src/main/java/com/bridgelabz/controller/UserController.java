@@ -32,34 +32,26 @@ public class UserController
 	@Autowired
 	private UserService userService;
 	private Validator validator;
+	
 	@RequestMapping(value="/signup", method=RequestMethod.GET)
 	public ModelAndView signup(Model model) 
 	{	
 		List<User> user2=(List<User>) userService.getAllUser();
 		User user = new User();		
-		model.addAttribute("user", user);
+		model.addAttribute("userer", user);
 		return new ModelAndView("signup","user",user2);
 	}
+	
 	@RequestMapping(value="hi.html",  method=RequestMethod.POST)
 	public ModelAndView signup(User userer, BindingResult result, Model model) 
 	{	
-		/*validator.validate(user, result);
-		if(result.hasErrors())
-		{
-			List<User> user2=(List<User>) userService.getAllUser();
-			
-			return new ModelAndView("signup","user",user2);
-		} 
-		else
-		{*/
+			User user= new User();
 			userService.saveUser(userer);
 			System.out.println("Data Saved");
-			model.addAttribute("userLogin", userer);
+			model.addAttribute("userLogin", user);
 			List<User> user1=(List<User>) userService.getAllUser();
 			
-			return new ModelAndView("login","user",user1);
-		//}
-		
+			return new ModelAndView("login","user", "");
 	}
 
 	@RequestMapping(value="/login", method=RequestMethod.GET)
@@ -74,18 +66,13 @@ public class UserController
 	@RequestMapping(value="hieee.html", method=RequestMethod.POST)
 	public ModelAndView login(@ModelAttribute("userLogin") UserLogin userLogin, BindingResult result, Model model) 
 	{
-		/*if (result.hasErrors()) 
-		{
-			return "login";
-		}
-		else 
-		{*/
 		
+		System.out.println("hi.html");
 		String loginusername =userLogin.getUserName();
 		String loginpassword =userLogin.getPassword();
 		System.out.println("Loginusername"+loginusername+" LoginPassword"+loginpassword);
 		System.out.println("sddsf");
-//			/model.addAttribute("userLogin", userLogin);
+
 			boolean found = userService.findByLogin(userLogin.getUserName(), userLogin.getPassword());
 			if (found) 
 			{	List<User> user2=(List<User>) userService.getAllUser();			

@@ -8,6 +8,7 @@
   <!-- Auto-detect controllers -->
   
   <context:component-scan base-package="com.bridgelabz"/>
+ <!--  <mvc:resources mapping="/index." location="/WEB-INF/views/" />  -->
 
   <!--  Prepend /WEB-INF/jsp/ and append .jsp to the logical view name  -->
   <bean id="viewResolver"

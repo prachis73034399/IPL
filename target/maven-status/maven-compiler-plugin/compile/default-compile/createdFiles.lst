@@ -2,7 +2,6 @@ com/bridgelabz/model/User.class
 com/bridgelabz/controller/TeamForm.class
 com/bridgelabz/model/Team.class
 com/bridgelabz/controller/UserController.class
-com/bridgelabz/controller/UserForm.class
 com/bridgelabz/validator/Validator.class
 com/bridgelabz/dao/HibernateUserDao.class
 com/bridgelabz/service/UserServiceImpl.class

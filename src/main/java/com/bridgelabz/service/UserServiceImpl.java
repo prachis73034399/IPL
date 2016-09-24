@@ -1,5 +1,6 @@
 package com.bridgelabz.service;
 
+
 import com.bridgelabz.model.Team;
 import com.bridgelabz.model.User;
 
@@ -23,7 +24,7 @@ public class UserServiceImpl implements UserService
 	public Collection<User> getUsersByName(String userName) 
 	{
 		System.out.println(userName);
-		return userdao.getUserByName(userName);
+		return (List<User>) userdao.getUserByName(userName);
 	}
 	
 	public Collection<User> getUserById(int id) 
@@ -49,21 +50,37 @@ public class UserServiceImpl implements UserService
 	User userName = new User();
 	public boolean findByLogin(String userName, String password) 
 	{	
-		String  pass="";
+		/*String  pass="";
 		System.out.println("username:"+userName);
 		Collection<User> list=hb.getUserByName(userName);
 		System.out.println("listusers"+list);
 		for (User object : list) 
 		{
 			pass=object.getPassword();
-		}
-		
-		if(list!= null && pass.equals(password))
+		}*/
+		String pass="";
+		String username="";
+		User user1= new User();
+		List<User> user = (List<User>) getUsersByName(userName);
+		System.out.println(user);
+		/*if(user!= null &&  user.getPassword.equals(user1.getPassword()))
 		{
 			return true;
-		} 
-		
-		return false;		
+		} */
+		for(User object: user)
+		{
+			pass =object.getPassword();
+			username=object.getUserName();
+		}
+		if(username.equals(userName) && pass.equals(password))
+		{
+			return true;
+		}
+		else
+		{
+		return false;
+		}
+		//return false;		
 	}
 	public Collection<Team> getAllTeams()
 	{
