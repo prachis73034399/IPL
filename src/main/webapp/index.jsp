@@ -3,8 +3,6 @@
 
 </head>
 <body>
-
-	
 	<div class="container">
 		<div class="jumbotron">
 			<div>
@@ -17,10 +15,9 @@
 			<br>
 			<button onclick="window.location='login.html'">Login</button>
 		</div>
-
+		
 		<div></div>
 	</div>
-
-
+<!-- <img src="./../resources/images/DD.jpg" width="50" height="50"> -->
 </body>
 </html>

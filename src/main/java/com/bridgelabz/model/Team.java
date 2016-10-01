@@ -1,6 +1,7 @@
 package com.bridgelabz.model;
 
 
+import java.io.File;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -27,72 +28,66 @@ public class Team
 	@Id
 	@GeneratedValue
 	@Column(name="id")
-	private Integer id;
+	private Integer teamId;
 
-	@Column(name="name")
+	@Column(name="teamname")
 	private String teamName;
 
-	@Column(name="name")
+	@Column(name="captainName")
 	private String captainName;
 
-	@Column(name="filename")
-	private String filename;
-
-	public String getFilename()
-	{
-		return filename;
-	}
-	public void setFilename(String filename) 
-	{
-		this.filename = filename;
-	}
-	public Blob getContent()
-	{
-		return content;
-	}
-	public void setContent(Blob content) 
-	{
-		this.content = content;
-	}
-	public String getContentType() 
-	{
-		return contentType;
-	}
-	public void setContentType(String contentType) 
-	{
-		this.contentType = contentType;
-	}
-	@Column(name="content")
-	@Lob
-	private Blob content;
+	@Column(name="image")
+	private String image;
 	
+	@Column(name="img")
+	private String img;
+
+	/*
+	@Column(name="fileData")
+	private File fileData;
+	*/
+	
+	public Integer getTeamId() {
+		return teamId;
+	}
+	public void setTeamId(Integer teamId) {
+		this.teamId = teamId;
+	}
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
 	@Column(name="content_type")
 	private String contentType;
 	
+	
+	
 	public Team () {}
-	public Team (Integer id, String teamname, String captainName, String filename, String  contentType, Blob content) 
+	public Team (Integer id, String teamname, String captainName, String image, String  contentType, String img) 
 	{
 		setId(id);
 		setTeamName(teamname);
 		setCaptainName(captainName);
-		setFilename(filename);
+		setImage(image);
 		setContentType(contentType);
-		setContent(content);
+		setImg(img);
 	}
 
 	public boolean isNew() 
 	{
-		return id == null;
+		return teamId == null;
 	}
 
 	public Integer getId() 
 	{
-		return id;
+		return teamId;
 	}
 
-	public void setId(Integer id) 
+	public void setId(Integer teamId) 
 	{
-		this.id = id;
+		this.teamId = teamId;
 	}
 
 	public String getTeamName() 
@@ -112,5 +107,29 @@ public class Team
 	{
 		this.captainName = captainName;
 	}
+	
+	public String getImage()
+	{
+		return image;
+	}
+	public void setImage(String image) 
+	{
+		this.image = image;
+	}
+	
+	public String getContentType() 
+	{
+		return contentType;
+	}
+	public void setContentType(String contentType) 
+	{
+		this.contentType = contentType;
+	}
 
+	/*public File getFileData() {
+		return fileData;
+	}
+	public void setFileData(File fileData) {
+		this.fileData = fileData;
+	}*/
 }

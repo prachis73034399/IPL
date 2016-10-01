@@ -33,12 +33,13 @@
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 				<prop key="hibernate.show_sql">false</prop>
-				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 			</props>
 		</property>
 	<property name="annotatedClasses">
 	<list>
 		<value>com.bridgelabz.model.User</value>
+		<value>com.bridgelabz.model.Team</value>
 		<!-- <value>com.bridgelabz.model.UserLogin</value> -->
 		<!-- <value>com.bridgelabz.dao.HibernateUserDao</value> -->
 	</list>

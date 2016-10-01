@@ -32,10 +32,10 @@ public class UserServiceImpl implements UserService
 		return userdao.getUserById(id);
 	}
 	
-	/*public Collection<Team> getTeamById(int teamId) 
+	public Collection<Team> getTeamById(int teamId) 
 	{
 		return userdao.getTeamById(teamId);
-	}*/
+	}
 	
 	public void saveUser(User user) 
 	{
@@ -84,13 +84,20 @@ public class UserServiceImpl implements UserService
 	}
 	public Collection<Team> getAllTeams()
 	{
-		return (List<Team>) userdao.getAll();
+		return (List<Team>) userdao.getAllTeam();
 	}
 
 	public Collection<User> getAllUser()
 	{
 		return (List<User>) userdao.getAlluser();
 	}
+	
+	/*public Collection<User> getTeamByName(String teamName)
+	{
+		return (<Team>) userdao.getTeamByName(teamName);	
+		
+	}*/
+	 
 }
 
 

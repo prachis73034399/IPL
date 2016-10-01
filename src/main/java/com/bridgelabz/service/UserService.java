@@ -10,7 +10,7 @@ public interface UserService
 {
 	 public Collection<User> getUsersByName(String userName);
 	 public Collection<User> getUserById(int countryId);
-	// public Collection<Team> getTeamById(long countryId);
+	 public Collection<Team> getTeamById(int teamId);
 	 public void saveUser(User user);
 	 public void saveteam(Team team); 
 	 boolean findByLogin(String userName, String password);

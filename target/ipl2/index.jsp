@@ -17,10 +17,9 @@
 			<br>
 			<button onclick="window.location='login.html'">Login</button>
 		</div>
-
+		<img src="http://www.freedigitalphotos.net/images/img/homepage/87357.jpg">
 		<div></div>
 	</div>
-
 
 </body>
 </html>

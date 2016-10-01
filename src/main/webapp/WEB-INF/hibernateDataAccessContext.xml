@@ -10,6 +10,7 @@
     http://www.springframework.org/schema/context/spring-context-3.0.xsd">
     
 	<mvc:annotation-driven/>
+	<mvc:resources mapping="/resources/**" location="/resources/" />
 	<!-- <context:component-scan base-package="metrolink.core"/> --> 
 	<context:component-scan base-package="com.bridgelabz"/>
 	<mvc:resources mapping="/index.jsp" location="/WEB-INF" /> 
@@ -33,12 +34,13 @@
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 				<prop key="hibernate.show_sql">false</prop>
-				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 			</props>
 		</property>
 	<property name="annotatedClasses">
 	<list>
 		<value>com.bridgelabz.model.User</value>
+		<value>com.bridgelabz.model.Team</value>
 		<!-- <value>com.bridgelabz.model.UserLogin</value> -->
 		<!-- <value>com.bridgelabz.dao.HibernateUserDao</value> -->
 	</list>
@@ -48,6 +50,7 @@
 	<!-- class beans -->
 	<bean id="HibernateUserDao" class="com.bridgelabz.dao.HibernateUserDao"></bean>
 	<bean id="userService" class="com.bridgelabz.service.UserServiceImpl"></bean>
+
 
 </beans>
 
