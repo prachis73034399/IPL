@@ -1,6 +1,7 @@
 package com.bridgelabz.service;
 
 
+import com.bridgelabz.model.Player;
 import com.bridgelabz.model.Team;
 import com.bridgelabz.model.User;
 
@@ -47,6 +48,12 @@ public class UserServiceImpl implements UserService
 		userdao.saveteam(team);
 	}
 	
+	public void saveplayer(Player plr) 
+	{
+		userdao.saveplayer(plr);
+	}
+	
+	
 	User userName = new User();
 	public boolean findByLogin(String userName, String password) 
 	{	
@@ -92,11 +99,27 @@ public class UserServiceImpl implements UserService
 		return (List<User>) userdao.getAlluser();
 	}
 	
+	public Collection<Player> getAllPlayer()
+	{
+		return (List<Player>) userdao.getAllPlayer();
+	}
+	
 	/*public Collection<User> getTeamByName(String teamName)
 	{
 		return (<Team>) userdao.getTeamByName(teamName);	
 		
 	}*/
+	public Collection<Player> getAllSpPlayer(String teamname)
+	{
+		return (List<Player>) userdao.getAllSpecificPlayer(teamname);
+	}
+	
+	public Collection<Player> getAllInfoPlayer(String playerName)
+	{
+		return (List<Player>) userdao.getAllInfoPlayer(playerName);
+	}
+	
+	
 	 
 }
 

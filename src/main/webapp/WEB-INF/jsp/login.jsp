@@ -27,7 +27,7 @@
 						<tr>
 							<td><h5>Password</h5></td>
 							<td>
-								<form:input path="password" size="8" maxlength="8" />
+								<form:input path="password" size="8" maxlength="8" type="password" />
 								<%-- <form:errors path="area" cssClass="errors"/> --%>
 							</td>
 						</tr>

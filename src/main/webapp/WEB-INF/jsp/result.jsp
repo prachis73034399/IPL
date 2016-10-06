@@ -28,25 +28,21 @@ p.ex1 {
   			<div class="col-sm-4">
 				<c:forEach items="${teamed}" var="team">
 					<div class="card">
- 						 <img class="card-img-top" src="http://localhost:8080/prachi/${team.img}" alt="Card image cap">
+					
+ 						<a href="" data-toggle="modal" data-target="#myModal"> <img class="card-img-top" src="http://localhost:3698/prachi/${team.img}"style="display:inline-block;" alt="Card image cap" />
 		 					 <div class="card-block">
    								<h4>${team.teamName}</h4> 
-		 					 </div>
+   								<!-- <form modelAttribute="" action="showplayer.html"> -->
+   								<div class="card-action">
+   									<a href="showplayers.html?teamName=${team.teamName}" enctype="multipart/form-data">Show Players of the Team</a>
+     							 </div>
+     							<!--  </form> -->
+		 					 </div></a>
 					</div>
 				</c:forEach>
 			</div>
 		</div>
-			<%-- 	<c:forEach items="${teamed}" var="team">
-				<img src="http://localhost:8080/prachi/${team.img}" width="200" height="200">
-				<h2>${team.image}</h2>
-				<h2>${team.img}</h2>
-				</c:forEach>
-		 --%>
-		
-		
-		 <%-- <p class="ex1"><img src="<c:url value="/resources/images/DD.jpg" />" alt=" " width="100" height="100"class="btn btn-primary" data-toggle="modal" data-target="#myModal"></p>
-		<!-- Modal -->￼
-
+			
 
 	  <div class="modal fade" id="myModal" role="dialog">
 	    <div class="modal-dialog  modal-sm">
@@ -57,7 +53,7 @@ p.ex1 {
 	          <h4 class="modal-title"><b>Create New Player</b></h4>
 	        </div>
 	        <div class="modal-body">
-	        	<form name="teams" action="save.html" method="post" enctype="multipart/form-data">
+	        	<form name="teams" action="saveplayer.html" method="post" enctype="multipart/form-data">
 	          		<table>
 							<tr>
 								<td>
@@ -67,7 +63,16 @@ p.ex1 {
 								</tr>
 								<tr>
 									<td>
-										<input type="text" name="teamName" placeholder="Player name">
+										<input type="text" name="playerName" placeholder="Player name">
+										<!-- <form:errors path="area" cssClass="errors"/> -->
+									</td>
+								</tr>
+								<tr>
+									<td><h5>Team Name</h5></td>
+								</tr>
+								<tr>
+									<td>
+										<input type="text" name="teamName" placeholder="Team name">
 										<!-- <form:errors path="area" cssClass="errors"/> -->
 									</td>
 								</tr>
@@ -78,7 +83,7 @@ p.ex1 {
 								</tr>
 								<tr>
 									<td>
-										<input type="text" name="captainName" placeholder="Age">
+										<input type="text" name="age" placeholder="Age">
 										<!-- <form:errors path="area" cssClass="errors"/> -->
 									</td>
 								</tr>
@@ -89,7 +94,7 @@ p.ex1 {
 								</tr>
 								<tr>
 									<td>
-										<input type="text" name="captainName" placeholder="Nationality">
+										<input type="text" name="nationality" placeholder="Nationality">
 										<!-- <form:errors path="area" cssClass="errors"/> -->
 									</td>
 								</tr>
@@ -100,7 +105,7 @@ p.ex1 {
 								</tr>
 								<tr>
 									<td>
-										<input type="text" name="captainName" placeholder="Batting Style">
+										<input type="text" name="battingstyle" placeholder="Batting Style">
 										<!-- <form:errors path="area" cssClass="errors"/> -->
 									</td>
 								</tr>
@@ -111,7 +116,7 @@ p.ex1 {
 								</tr>
 								<tr>
 									<td>
-										<input type="text" name="captainName" placeholder="Bowling style">
+										<input type="text" name="bowlingstyle" placeholder="Bowling style">
 										<!-- <form:errors path="area" cssClass="errors"/> -->
 									</td>
 								</tr>
@@ -130,6 +135,6 @@ p.ex1 {
 						</table>
 					</td>
 				</tr>
-			</table> --%>
+			</table>
 	</body>
 </html>

@@ -41,11 +41,6 @@ public class Team
 	
 	@Column(name="img")
 	private String img;
-
-	/*
-	@Column(name="fileData")
-	private File fileData;
-	*/
 	
 	public Integer getTeamId() {
 		return teamId;
@@ -126,10 +121,5 @@ public class Team
 		this.contentType = contentType;
 	}
 
-	/*public File getFileData() {
-		return fileData;
-	}
-	public void setFileData(File fileData) {
-		this.fileData = fileData;
-	}*/
+
 }

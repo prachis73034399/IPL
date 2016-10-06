@@ -1,8 +1,4 @@
 package com.bridgelabz.model;
-
-
-
-
 import java.io.File;
 import java.util.Date;
 
@@ -27,96 +23,116 @@ import com.mysql.jdbc.Blob;
 public class Player
 {
 
+	@Override
+	public String toString() {
+		return "Player [playerId=" + playerId + ", playerName=" + playerName + ", age=" + age + ", nationality="
+				+ nationality + ", battingstyle=" + battingstyle + ", bowlingstyle=" + bowlingstyle + ", image=" + image
+				+ ", img=" + img + ", teamName=" + teamName + "]";
+	}
 	@Id
 	@GeneratedValue
 	@Column(name="id")
 	private Integer playerId;
 
-	@Column(name="teamname")
+	@Column(name="playerName")
 	private String playerName;
 
-	@Column(name="captainName")
-	private int age;
-/*
-	@Column(name="image")
-	private String ;
+	@Column(name="age")
+	private Integer age;
+	
+	@Column(name="nationality")
+	private String nationality;
 
+	@Column(name="battingstyle")
+	private String battingstyle ;
+
+	@Column(name="bowlingstyle")
+	private String bowlingstyle ;
 	
-	@Column(name="fileData")
-	private File fileData;
+	@Column(name="image")
+	private String image ;
 	
-	
-	@Column(name="content_type")
-	private String contentType;
-	
-	
-	
+	@Column(name="img")
+	private String img;
+
+
+	@Column(name="teamname")
+	private String teamName;
+
 	public Player () {}
-	public Player (Integer id, String teamname, String captainName, String image, String  contentType) 
+	public Player (Integer playerId, Integer age, String playerName, String nationality, String battingstyle, String  bowlingstyle) 
 	{
-		setId(id);
-		setTeamName(teamname);
-		setCaptainName(captainName);
-		setImage(image);
-		setContentType(contentType);
+		setPlayerId(playerId);
+		setPlayerName(playerName);
+		setAge(age);
+		setNationality(nationality);
+		setBattingstyle(battingstyle);
+		setBowlingstyle(bowlingstyle);
 		
 	}
 
 	public boolean isNew() 
 	{
-		return teamId == null;
+		return playerId == null;
 	}
 
-	public Integer getId() 
-	{
-		return teamId;
+	public Integer getPlayerId() {
+		return playerId;
 	}
-
-	public void setId(Integer teamId) 
-	{
-		this.teamId = teamId;
+	public void setPlayerId(Integer playerId) {
+		this.playerId = playerId;
 	}
-
-	public String getTeamName() 
-	{
-		return teamName;
+	public String getPlayerName() {
+		return playerName;
 	}
-
-	public void setTeamName(String userName) 
-	{
-		this.teamName = userName;
+	public void setPlayerName(String playerName) {
+		this.playerName = playerName;
 	}
-	public String getCaptainName() 
-	{
-		return captainName;
+	public Integer getAge() {
+		return age;
 	}
-	public void setCaptainName(String captainName) 
-	{
-		this.captainName = captainName;
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+	public String getNationality() {
+		return nationality;
+	}
+	public void setNationality(String nationality) {
+		this.nationality = nationality;
+	}
+	public String getBattingstyle() {
+		return battingstyle;
+	}
+	public void setBattingstyle(String battingstyle) {
+		this.battingstyle = battingstyle;
+	}
+	public String getBowlingstyle() {
+		return bowlingstyle;
+	}
+	public void setBowlingstyle(String bowlingstyle) {
+		this.bowlingstyle = bowlingstyle;
 	}
 	
-	public String getImage()
-	{
+	
+	public String getImage() {
 		return image;
 	}
-	public void setImage(String image) 
-	{
+	public void setImage(String image) {
 		this.image = image;
 	}
 	
-	public String getContentType() 
-	{
-		return contentType;
+	
+	public String getImg() {
+		return img;
 	}
-	public void setContentType(String contentType) 
-	{
-		this.contentType = contentType;
+	public void setImg(String img) {
+		this.img = img;
 	}
-
-	public File getFileData() {
-		return fileData;
+	
+	public String getTeamName() {
+		return teamName;
 	}
-	public void setFileData(File fileData) {
-		this.fileData = fileData;
-	}*/
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
+	}
 }

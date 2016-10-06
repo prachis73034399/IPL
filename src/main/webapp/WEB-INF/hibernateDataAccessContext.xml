@@ -41,6 +41,7 @@
 	<list>
 		<value>com.bridgelabz.model.User</value>
 		<value>com.bridgelabz.model.Team</value>
+		<value>com.bridgelabz.model.Player</value>
 		<!-- <value>com.bridgelabz.model.UserLogin</value> -->
 		<!-- <value>com.bridgelabz.dao.HibernateUserDao</value> -->
 	</list>

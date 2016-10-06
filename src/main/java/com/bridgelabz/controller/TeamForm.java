@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bridgelabz.dao.UserDao;
-
+import com.bridgelabz.model.Player;
 import com.bridgelabz.model.Team;
 import com.bridgelabz.model.User;
 import com.bridgelabz.service.UserService;
@@ -94,5 +94,67 @@ public class TeamForm
 
  
     
+    @RequestMapping(value = "/saveplayer", method = RequestMethod.POST)
+	public ModelAndView saved(Player plr, MultipartHttpServletRequest request, Model model) throws IllegalStateException, IOException
+	{
+		System.out.println("TeamName:" + plr.getPlayerName());
+		System.out.println("Captain Name:" + plr. getAge());
+		System.out.println("ContentType:" + plr.getNationality());
+		System.out.println("ContentType:" + plr.getBattingstyle());
+		Iterator<String> itr= request.getFileNames();
+		// for storing the file in local system
+		while(itr.hasNext())
+		{
+			mpf = request.getFile(itr.next());
+			/*MultipartFile file1  = (MultipartFile) team.getFileData(); */ //Will return CommonsMultipartFile
+			System.out.println(mpf.getOriginalFilename());
+			String filePath1 = "/home/bridgeit/Desktop/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/ROOT/prachi/players/" + mpf.getOriginalFilename(); 
+			File dest = new File(filePath1);
+			mpf.transferTo(dest);
+			plr.setImage(filePath1);
+		} 
+		
+			String img =mpf.getOriginalFilename();
+			plr.setImg(img);	
+			System.out.println("Imagepath:" + plr.getImage());
+			System.out.println("Img:" + plr.getImg());
+			/*Team team1 = new Team();*/
+			//System.out.println("Team INFO:"+ team);
+			userService.saveplayer(plr);
+			System.out.println("Player Saved");
+			List<Player> players=(List<Player>) userService.getAllSpPlayer(plr.getTeamName());
+			//model.addAttribute("teams",team.getImage());
+			return new ModelAndView("player","players", players);
+	}
+
+    @RequestMapping(value = "/showplayers", method = RequestMethod.GET)
+   	public ModelAndView showteams(@RequestParam(value = "teamName", required = true) String teamName, HttpServletRequest request, Model model) throws IllegalStateException, IOException
+   	{
+   	
+   		//Iterator<String> itr= request.getFileNames();
+   		// for storing the file in local system
+   			String p= null;
+   			System.out.println("Prachi "+teamName);
+   			
+   		
+   			List<Player> players=(List<Player>) userService.getAllSpPlayer(teamName);
+   			for (Player player : players)
+   			{
+				System.out.println("team name:"+player.getTeamName());
+			}
+   			//model.addAttribute("teams",team.getImage());
+   			return new ModelAndView("allplayers","players", players);
+   	}
+
+
+    @RequestMapping(value = "/playerdetails", method = RequestMethod.POST)
+   	public ModelAndView palyerdetails(Player plr,@RequestParam(value = "playerName", required = true) String playerName, MultipartHttpServletRequest request, Model model) throws IllegalStateException, IOException
+   	{
+    		System.out.println("Playercha nav:" + plr.getPlayerName());
+    		
+   			List<Player> players=(List<Player>) userService.getAllInfoPlayer(playerName);
+   			//model.addAttribute("teams",team.getImage());
+   			return new ModelAndView("playerdetails","players", players);
+   	}
 
 }

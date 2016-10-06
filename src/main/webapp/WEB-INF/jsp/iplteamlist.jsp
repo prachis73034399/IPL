@@ -51,7 +51,7 @@
           <h4 class="modal-title"><b>Create New Team</b></h4>
         </div>
         <div class="modal-body">
-        	<form name="teams" action="save.html" method="post" enctype="multipart/form-data">
+        	<form name="teams" action="save.html" method="post" enctype="multipart/form-data" >
           		<table>
 					<tr>
 						<td>
@@ -82,7 +82,7 @@
 							</tr>
  							<tr>
 								<td align="left" valign="bottom">
-									<button type="submit" name="signup">Save</button>
+									<button type="submit" name="signup" onClick="window.location.reload()">Save</button>
 					 			</td>
 							</tr>
 					</table>
@@ -95,18 +95,7 @@
       
  </div>
 
-<div class="row">
-  			<div class="col-sm-4">
-				<c:forEach items="${teamed}" var="team">
-					<div class="card">
- 						 <img class="card-img-top" src="http://localhost:8080/prachi/${team.img}" alt="Card image cap">
-		 					 <div class="card-block">
-   								<h4>${team.teamName}</h4> 
-		 					 </div>
-					</div>
-				</c:forEach>
-			</div>
-		</div>
+
 		 
 </body>
 
