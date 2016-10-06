@@ -20,6 +20,10 @@
  						 visibility: hidden;
  						 position: absolute;
 				}
+			function clearField() 
+			{
+				document.chatform.reset();
+			}
 		</style>
 </head>
 <body>
@@ -82,7 +86,7 @@
 							</tr>
  							<tr>
 								<td align="left" valign="bottom">
-									<button type="submit" name="signup" onClick="window.location.reload()">Save</button>
+									<button type="submit" name="signup" onClick="clearField();">Save</button>
 					 			</td>
 							</tr>
 					</table>

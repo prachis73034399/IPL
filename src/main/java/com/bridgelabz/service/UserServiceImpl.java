@@ -119,7 +119,10 @@ public class UserServiceImpl implements UserService
 		return (List<Player>) userdao.getAllInfoPlayer(playerName);
 	}
 	
-	
+	public Collection<Player> getPlayerByName(String playerName) 
+	{
+		return userdao.getPlayerByName(playerName);
+	}
 	 
 }
 

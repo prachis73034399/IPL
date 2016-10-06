@@ -21,4 +21,5 @@ public interface UserService
 	 public Collection<Player> getAllPlayer();
 	 public Collection<Player> getAllSpPlayer(String teamname);
 	 public Collection<Player> getAllInfoPlayer(String playerName);
+	 public Collection<Player> getPlayerByName(String playerName);
 }

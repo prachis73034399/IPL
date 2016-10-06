@@ -13,6 +13,7 @@ public interface UserDao
 	public Collection<User> getUserByName(String userName);
 	public Collection<User> getUserById(int countryId);
 	public Collection<Team> getTeamByName(String teamName);
+	public Collection<Player> getPlayerByName(String playerName);
 	public Collection<Team> getTeamById(int teamId);
 	public void save(User user);
 	public void saveteam(Team team);

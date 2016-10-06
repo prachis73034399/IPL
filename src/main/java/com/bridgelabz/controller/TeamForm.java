@@ -50,7 +50,6 @@ public class TeamForm
 	@Autowired
 	private Validator validator;
 	UserDao userdao;
-	
 	//autowiring helps to inject a specific object 
 	@Autowired
 	private UserService userService;
@@ -114,17 +113,17 @@ public class TeamForm
 			plr.setImage(filePath1);
 		} 
 		
-			String img =mpf.getOriginalFilename();
-			plr.setImg(img);	
-			System.out.println("Imagepath:" + plr.getImage());
-			System.out.println("Img:" + plr.getImg());
-			/*Team team1 = new Team();*/
-			//System.out.println("Team INFO:"+ team);
-			userService.saveplayer(plr);
-			System.out.println("Player Saved");
-			List<Player> players=(List<Player>) userService.getAllSpPlayer(plr.getTeamName());
-			//model.addAttribute("teams",team.getImage());
-			return new ModelAndView("player","players", players);
+		String img =mpf.getOriginalFilename();
+		plr.setImg(img);	
+		System.out.println("Imagepath:" + plr.getImage());
+		System.out.println("Img:" + plr.getImg());
+		/*Team team1 = new Team();*/
+		//System.out.println("Team INFO:"+ team);
+		userService.saveplayer(plr);
+		System.out.println("Player Saved");
+		List<Player> players=(List<Player>) userService.getAllSpPlayer(plr.getTeamName());
+		//model.addAttribute("teams",team.getImage());
+		return new ModelAndView("player","players", players);
 	}
 
     @RequestMapping(value = "/showplayers", method = RequestMethod.GET)
@@ -147,12 +146,16 @@ public class TeamForm
    	}
 
 
-    @RequestMapping(value = "/playerdetails", method = RequestMethod.POST)
-   	public ModelAndView palyerdetails(Player plr,@RequestParam(value = "playerName", required = true) String playerName, MultipartHttpServletRequest request, Model model) throws IllegalStateException, IOException
+    @RequestMapping(value = "/playerdetails", method = RequestMethod.GET)
+   	public ModelAndView palyerdetails(Player plr,@RequestParam(value = "playerName", required = true) String playerName,HttpServletRequest request, Model model) throws IllegalStateException, IOException
    	{
     		System.out.println("Playercha nav:" + plr.getPlayerName());
     		
-   			List<Player> players=(List<Player>) userService.getAllInfoPlayer(playerName);
+   			List<Player> players=(List<Player>) userService.getPlayerByName(playerName);
+   			for (Player player : players) 
+   			{
+   				System.out.println("team name:"+player.getTeamName());
+			}
    			//model.addAttribute("teams",team.getImage());
    			return new ModelAndView("playerdetails","players", players);
    	}

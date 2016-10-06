@@ -208,4 +208,15 @@ public class HibernateUserDao implements UserDao
 		return list;
 	}
 	
+	public Collection<Player> getPlayerByName(String playerName)
+	{
+		System.out.println("by player name");
+		//calling method opensession for opening the session of sessionFactory assigning to the object of Session interface
+		session = sessionFactory.openSession();
+		session.beginTransaction();
+		Query query = session.createQuery("from Player where playerName=:playerName").setParameter("playerName",playerName);
+		//System.out.println("USERNAME is:"+teamname);
+		List list = query.list();
+		return list;
+	}
 }

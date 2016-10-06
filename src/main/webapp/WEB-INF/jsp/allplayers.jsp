@@ -9,15 +9,18 @@
 </head>
 <body>
 	<div class="row">
-	<h2>Hello</h2>
+	
   			<div class="col-sm-4">
 				<c:forEach items="${players}" var="plr">
 					<div class="card">
-					<h4>${plr.playerName}</h4> 
- 						<a href="" data-toggle="modal" data-target="#myModal"> <img class="card-img-top" src="http://localhost:3698/prachi/${plr.img}" alt="Card image cap" />
+					<%-- <h4>${plr.playerName}</h4>  --%>
+					
+ 						
+ 						<img class="card-img-top" src="http://localhost:3698/prachi/players/${plr.img}" alt="Card image cap" />
 		 					 <div class="card-block">
-   								<h4>${plr.playerName}</h4> 
-		 					<!--  </div> -->
+		 					<a href="playerdetails.html?playerName=${plr.playerName}" enctype="multipart/form-data">${plr.playerName}</a>
+   								
+		 			
 		 				<!-- </a> -->
 					</div>
 				</c:forEach>
