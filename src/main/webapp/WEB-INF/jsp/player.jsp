@@ -20,22 +20,26 @@ p.ex1 {
   visibility: hidden;
   position: absolute;
 }
+body 
+{
+	/* background-image: url("https://s-media-cache-ak0.pinimg.com/236x/8e/37/9b/8e379b416abadec0bcfd0a48bbd892c4.jpg"); */ 
+	background-repeat: no-repeat;
+	background-size:cover;
+}
 
 </style>
 </head>
 <body>
-
+<h1>Players of Team ${plrr}</h1>
 		<div>
-  			<div class="col-md-4">
+  			<div class="col-md-12">
 				<c:forEach items="${players}" var="plr">
 					<div class="card" style="display:inline-block;">
-						<a href="playerdetails.html?playerName=${plr.playerName}"><img class="card-img-top" src="http://localhost:3698/prachi/players/${plr.img}" alt="Card image cap"/>
+						<%-- <a href="playerdetails.html?playerName=${plr.playerName}"> --%><img class="card-img-top" src="http://localhost:2586/prachi/${plr.img}" alt="Card image cap"/>
 		 					<div class="card-block">
-   								<h4>${plr.playerName}</h4> 
-   				
-		 					 </div>
-		 					   
-					</div>
+   								<h4><font color="#000000"><h1>${plr.playerName}</h1></font></h4> 
+							</div>
+		 			</div>
 				</c:forEach>
 			</div>
 		</div>                 

@@ -20,40 +20,51 @@ p.ex1 {
   position: absolute;
 }
 
+body 
+			{
+    			background-image: url("https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRUEor8dY8LEXBPuOyI6r3oSqgv5FjcH_1lDU10HNmuYqNtmG0t");
+    			background-repeat: no-repeat;
+    			background-size:cover;
+			}
 </style>
 </head>
 	</head>
 	<body>
-		<div class="row">
-  			<div class="col-sm-4">
+<div class="container">
+ 
+		<div>
+  			<div class="col-md-12">
 				<c:forEach items="${teamed}" var="team">
-					<div class="card">
-					
- 						<a href="" data-toggle="modal" data-target="#myModal"> <img class="card-img-top" src="http://localhost:3698/prachi/${team.img}"style="display:inline-block;" alt="Card image cap" />
-		 					 <div class="card-block">
-   								<h4>${team.teamName}</h4> 
-   								<!-- <form modelAttribute="" action="showplayer.html"> -->
+					<div class="card" style="display:inline-block;">
+						<a href="teamformed.html?teamName=${team.teamName}" > <img class="card-img-top" src="http://localhost:2586/prachi/${team.img}" alt="Card image cap" />
+		 					<div class="card-block">
+   								<h4><font color="000000"><h4><b>${team.teamName}</b></h4></font></h4>
    								<div class="card-action">
-   									<a href="showplayers.html?teamName=${team.teamName}" enctype="multipart/form-data">Show Players of the Team</a>
-     							 </div>
-     							<!--  </form> -->
-		 					 </div></a>
+   									<%-- <a href="showplayers.html?teamName=${team.teamName}" enctype="multipart/form-data"><font color="ffffff"><h4><b>Show Players of the Team</b></h4></font></a> --%>
+     							 </div> 
+   					</div>
+		 					   
+		 					   
 					</div>
 				</c:forEach>
+				
 			</div>
 		</div>
+		
+		
+		    
 			
 
-	  <div class="modal fade" id="myModal" role="dialog">
+	<!--   <div class="modal fade" id="myModal" role="dialog">
 	    <div class="modal-dialog  modal-sm">
-		<!-- Modal content-->
+		Modal content
 	      <div class="modal-content">
 	        <div class="modal-header">
 	          <button type="button" class="close" data-dismiss="modal">&times;</button>
 	          <h4 class="modal-title"><b>Create New Player</b></h4>
 	        </div>
 	        <div class="modal-body">
-	        	<form name="teams" action="saveplayer.html" method="post" enctype="multipart/form-data">
+	        	<form  id="myForm" name="teams" action="saveplayer.html" method="post" enctype="multipart/form-data">
 	          		<table>
 							<tr>
 								<td>
@@ -64,7 +75,7 @@ p.ex1 {
 								<tr>
 									<td>
 										<input type="text" name="playerName" placeholder="Player name">
-										<!-- <form:errors path="area" cssClass="errors"/> -->
+										<form:errors path="area" cssClass="errors"/>
 									</td>
 								</tr>
 								<tr>
@@ -73,7 +84,7 @@ p.ex1 {
 								<tr>
 									<td>
 										<input type="text" name="teamName" placeholder="Team name">
-										<!-- <form:errors path="area" cssClass="errors"/> -->
+										<form:errors path="area" cssClass="errors"/>
 									</td>
 								</tr>
 								<tr>
@@ -84,7 +95,7 @@ p.ex1 {
 								<tr>
 									<td>
 										<input type="text" name="age" placeholder="Age">
-										<!-- <form:errors path="area" cssClass="errors"/> -->
+										<form:errors path="area" cssClass="errors"/>
 									</td>
 								</tr>
 								<tr>
@@ -95,7 +106,7 @@ p.ex1 {
 								<tr>
 									<td>
 										<input type="text" name="nationality" placeholder="Nationality">
-										<!-- <form:errors path="area" cssClass="errors"/> -->
+										<form:errors path="area" cssClass="errors"/>
 									</td>
 								</tr>
 								<tr>
@@ -106,7 +117,7 @@ p.ex1 {
 								<tr>
 									<td>
 										<input type="text" name="battingstyle" placeholder="Batting Style">
-										<!-- <form:errors path="area" cssClass="errors"/> -->
+										<form:errors path="area" cssClass="errors"/>
 									</td>
 								</tr>
 								<tr>
@@ -117,11 +128,11 @@ p.ex1 {
 								<tr>
 									<td>
 										<input type="text" name="bowlingstyle" placeholder="Bowling style">
-										<!-- <form:errors path="area" cssClass="errors"/> -->
+										<form:errors path="area" cssClass="errors"/>
 									</td>
 								</tr>
 								<tr>
-									<!-- <td>Image</td> -->
+									<td>Image</td>
 									<td>
 										<label class="control-label">Select Image</label>
 										<input id="input-4" name="file" type="file" multiple class="file-loading">
@@ -129,12 +140,20 @@ p.ex1 {
 								</tr>
 		 						<tr>
 									<td align="left" valign="bottom">
-										<button type="submit" name="signup">Save</button>
+										<button type="submit"  name="signup">Save</button>
 							 		</td>
 								</tr>
 						</table>
 					</td>
 				</tr>
 			</table>
+ </div> -->
+		
+			<!-- <script>
+				 function myFunction()
+				{
+				    document.getElementById("myForm").reset();
+				} 
+		   </script> -->
 	</body>
 </html>

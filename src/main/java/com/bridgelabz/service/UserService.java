@@ -9,7 +9,8 @@ import com.bridgelabz.model.User;
 
 public interface UserService 
 {
-	 public Collection<User> getUsersByName(String userName);
+	
+	public Collection<User> getUsersByName(String userName);
 	 public Collection<User> getUserById(int countryId);
 	 public Collection<Team> getTeamById(int teamId);
 	 public void saveUser(User user);
@@ -22,4 +23,5 @@ public interface UserService
 	 public Collection<Player> getAllSpPlayer(String teamname);
 	 public Collection<Player> getAllInfoPlayer(String playerName);
 	 public Collection<Player> getPlayerByName(String playerName);
+	 public Collection<Team> getTeamByName(String teamName);
 }

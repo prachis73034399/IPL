@@ -124,6 +124,10 @@ public class UserServiceImpl implements UserService
 		return userdao.getPlayerByName(playerName);
 	}
 	 
+	public Collection <Team> getTeamByName(String teamName) 
+	{
+		return userdao.getTeamByName(teamName);
+	}
 }
 
 

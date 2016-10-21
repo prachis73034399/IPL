@@ -28,10 +28,4 @@
     <property name="maxUploadSize" value="5000000"/>
 </bean>
 
-
-<!-- <bean id="uploadDirResource" class="org.springframework.core.io.FileSystemResource">
-<constructor-arg>
-<value>C:/test111</value>
-</constructor-arg>
-</bean> -->
 </beans>

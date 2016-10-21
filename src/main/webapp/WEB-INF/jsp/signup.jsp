@@ -57,8 +57,6 @@
 	</tr>
 </table>
 </form:form>
-<%-- <a href="index.html">
-	&lt;&lt;<spring:message code="navigation.back"/>
-</a --%>
+
 </body>
 </html>

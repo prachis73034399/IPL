@@ -6,25 +6,37 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style>
+			p.ex1
+				{
+   			 			 background-repeat: no-repeat;
+				}
+		body 
+{
+	/* background-image: url("http://www.hdwallpapersact.com/wp-content/gallery/cricket-stadium/cricket-stadium-1920x1080-image.jpg"); */
+	background-repeat: no-repeat;
+	background-size:cover;
+}
+		</style>
 </head>
 <body>
 	<div class="row">
-	
+	<%-- <h4>Palyers of ${plr.teamName}</h4>  --%>
+	<h1>Players of ${plr.teamName}</h1> 
   			<div class="col-sm-4">
-				<c:forEach items="${players}" var="plr">
-					<div class="card">
-					<%-- <h4>${plr.playerName}</h4>  --%>
-					
- 						
- 						<img class="card-img-top" src="http://localhost:3698/prachi/players/${plr.img}" alt="Card image cap" />
-		 					 <div class="card-block">
-		 					<a href="playerdetails.html?playerName=${plr.playerName}" enctype="multipart/form-data">${plr.playerName}</a>
-   								
+  			<c:forEach items="${players}" var="plr">
+  			 
+					<div class="card" style="display:inline-block;">
+						<a href="playerdetails.html?playerName=${plr.playerName}"><img class="card-img-top" src="http://localhost:2586/prachi/${plr.img}" alt="Card image cap"/>
+		 					<div class="card-block">
+   								<font color="#000000"><h1>${plr.playerName}</h1></font>
+   							</div>
+		 			</div>
 		 			
-		 				<!-- </a> -->
-					</div>
-				</c:forEach>
+		 			 
+			</c:forEach>
+				
 			</div>
-		</div>
+	</div>
 </body>
 </html>

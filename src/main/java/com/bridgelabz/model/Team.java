@@ -42,16 +42,20 @@ public class Team
 	@Column(name="img")
 	private String img;
 	
-	public Integer getTeamId() {
+	public Integer getTeamId() 
+	{
 		return teamId;
 	}
-	public void setTeamId(Integer teamId) {
+	public void setTeamId(Integer teamId)
+	{
 		this.teamId = teamId;
 	}
-	public String getImg() {
+	public String getImg() 
+	{
 		return img;
 	}
-	public void setImg(String img) {
+	public void setImg(String img)
+	{
 		this.img = img;
 	}
 	@Column(name="content_type")

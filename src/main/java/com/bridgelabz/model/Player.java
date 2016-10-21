@@ -22,14 +22,6 @@ import com.mysql.jdbc.Blob;
 @Table
 public class Player
 {
-
-	@Override
-	public String toString()
-	{
-		return "Player [playerId=" + playerId + ", playerName=" + playerName + ", age=" + age + ", nationality="
-				+ nationality + ", battingstyle=" + battingstyle + ", bowlingstyle=" + bowlingstyle + ", image=" + image
-				+ ", img=" + img + ", teamName=" + teamName + "]";
-	}
 	@Id
 	@GeneratedValue
 	@Column(name="id")
@@ -53,6 +45,12 @@ public class Player
 	@Column(name="image")
 	private String image ;
 	
+	@Override
+	public String toString() {
+		return "Player [playerId=" + playerId + ", playerName=" + playerName + ", age=" + age + ", nationality="
+				+ nationality + ", battingstyle=" + battingstyle + ", bowlingstyle=" + bowlingstyle + ", image=" + image
+				+ ", img=" + img + ", teamName=" + teamName + "]";
+	}
 	@Column(name="img")
 	private String img;
 
@@ -127,13 +125,14 @@ public class Player
 	}
 	
 	
-	public String getImage() {
+	public String getImage() 
+	{
 		return image;
 	}
-	public void setImage(String image) {
+	public void setImage(String image)
+	{
 		this.image = image;
 	}
-	
 	
 	public String getImg()
 	{
@@ -143,7 +142,6 @@ public class Player
 	{
 		this.img = img;
 	}
-	
 	public String getTeamName()
 	{
 		return teamName;
