@@ -2,17 +2,14 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <html>
 	<head>
-		
 		<title>
 			<h3>SignUp</h3>
 		</title>
 	</head>
 	<body>
-
-		<form:form modelAttribute="userer" action="hi.html" method="post">
+		<form:form modelAttribute="userer" action="signing.html" method="post">
 			<table>
 				<tr>
 					<td align="right" valign="bottom">
@@ -20,43 +17,34 @@
 					 </td>
 				</tr>
 				<tr>
-				<td>
+					<td>
 						<table class="silver">
 						
-						<tr>
-							<td><h5>User Name</h5></td>
-							<td>
-								<form:input path="userName" size="20" maxlength="50" />
-								<%-- <form:errors path="name" cssClass="errors"/> --%>
-							</td>
-						</tr>
-						<tr>
-							<td><h5>Password</h5></td>
-							<td>
-								<form:input path="password" size="8" maxlength="8" />
-								<%-- <form:errors path="area" cssClass="errors"/> --%>
-							</td>
-						</tr>
-						<tr>
-							<td><h5>First Name</h5></td>
-							<td>
-								<form:input path="firstName" size="10" maxlength="10" />
-								<%-- <form:errors path="population" cssClass="errors"/> --%>
-							</td>
-						</tr>
-						<%-- <tr>
-							<td><h5>Last Name</h5></td>
-							<td>
-								<form:input path="lastName" size="12" maxlength="12" />
-								<form:errors path="populationLastUpdated" cssClass="errors"/>
-							</td>
-						</tr> --%>
-					
+							<tr>
+								<td><h5>User Name</h5></td>
+								<td>
+									<form:input path="userName" size="20" maxlength="50" />
+									<%-- <form:errors path="name" cssClass="errors"/> --%>
+								</td>
+							</tr>
+							<tr>
+								<td><h5>Password</h5></td>
+								<td>
+									<form:input path="password" size="8" maxlength="8" />
+									<%-- <form:errors path="area" cssClass="errors"/> --%>
+								</td>
+							</tr>
+							<tr>
+								<td><h5>First Name</h5></td>
+								<td>
+									<form:input path="firstName" size="10" maxlength="10" />
+									<%-- <form:errors path="population" cssClass="errors"/> --%>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
 			</table>
-		</td>
-	</tr>
-</table>
-</form:form>
-
-</body>
+		</form:form>
+	</body>
 </html>

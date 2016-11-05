@@ -1,11 +1,7 @@
 package com.bridgelabz.controller;
-
-
 import java.util.Collection;
 import java.util.List;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,65 +21,74 @@ import com.bridgelabz.service.UserService;
 import com.bridgelabz.validator.Validator;
 
 @Controller
-@RestController
+
 public class UserController 
 {
-	
+	//autowiring helps to inject a specific object 
 	@Autowired
 	private UserService userService;
 	private Validator validator;
 	
+	
 	@RequestMapping(value="/signup", method=RequestMethod.GET)
 	public ModelAndView signup(Model model) 
 	{	
+		// calling getAllUser method of userService interface and storing in list of user type
 		List<User> user2=(List<User>) userService.getAllUser();
-		User user = new User();		
+		User user = new User();	
+		
+		// calling addAttribute method of Model class
 		model.addAttribute("userer", user);
 		return new ModelAndView("signup","user",user2);
 	}
 	
-	@RequestMapping(value="hi.html",  method=RequestMethod.POST)
+	
+	@RequestMapping(value="signing.html",  method=RequestMethod.POST)
 	public ModelAndView signup(User userer, BindingResult result, Model model) 
 	{	
-			User user= new User();
-			userService.saveUser(userer);
-			System.out.println("Data Saved");
-			model.addAttribute("userLogin", user);
-			List<User> user1=(List<User>) userService.getAllUser();
-			
-			return new ModelAndView("login","user", "");
+		User user= new User();
+		userService.saveUser(userer);
+		
+		// calling addAttribute method of Model class
+		model.addAttribute("userLogin", user);
+		
+		// calling getAllUser method of userService interface and storing in list of user type
+		List<User> user1=(List<User>) userService.getAllUser();
+		return new ModelAndView("login","", "");
 	}
 
+	
 	@RequestMapping(value="/login", method=RequestMethod.GET)
 	public ModelAndView login(Model model) 
 	{	
+		// calling getAllUser method of userService interface and storing in list of user type
 		List<User> user2=(List<User>) userService.getAllUser();
-		UserLogin userLogin = new UserLogin();		
+		UserLogin userLogin = new UserLogin();	
+		
+		// calling addAttribute method of Model class
 		model.addAttribute("userLogin", userLogin);
 		return new ModelAndView("login","user",user2);
 	}
 	
-	@RequestMapping(value="hieee.html", method=RequestMethod.POST)
+	
+	@RequestMapping(value="loging.html", method=RequestMethod.POST)
 	public ModelAndView login(@ModelAttribute("userLogin") UserLogin userLogin, BindingResult result, Model model) 
 	{
-		
-		System.out.println("hi.html");
-		String loginusername =userLogin.getUserName();
-		String loginpassword =userLogin.getPassword();
-		System.out.println("Loginusername"+loginusername+" LoginPassword"+loginpassword);
-		System.out.println("sddsf");
-
-			boolean found = userService.findByLogin(userLogin.getUserName(), userLogin.getPassword());
-			if (found) 
-			{	List<User> user2=(List<User>) userService.getAllUser();			
-				return new ModelAndView("iplteamlist","user",user2);
-			} else
-			{
-				List<User> user2=(List<User>) userService.getAllUser();
-				return new ModelAndView("login","user",user2);
-			}
+		boolean found = userService.findByLogin(userLogin.getUserName(), userLogin.getPassword());
+		if (found) 
+		{	
+			// calling getAllUser method of userService interface and storing in list of user type
+			List<User> user2=(List<User>) userService.getAllUser();			
+			return new ModelAndView("iplteamlist","user",user2);
+		} 
+		else
+		{
+			// calling getAllUser method of userService interface and storing in list of user type
+			List<User> user2=(List<User>) userService.getAllUser();
+			return new ModelAndView("login","user",user2);
 		}
-		
 	}
+		
+}
 
 

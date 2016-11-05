@@ -47,23 +47,24 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class TeamForm 
 {
-	
 	static File dest=null; 
-	@Autowired //autowiring helps to inject a specific object 
+	@Autowired  //autowiring helps to inject a specific object 
 	private Validator validator;
+	@Autowired //autowiring helps to inject a specific object 
+	private UserService userService;
+	@Autowired
+    private HttpServletRequest request;
 	UserDao userdao;  
 	HibernateUserDao hiberdao;
-	@Autowired//autowiring helps to inject a specific object 
-	private UserService userService;
 	SessionFactory sessionfactory;
 	MultipartFile mpf = null; // Making object of predefined interface MultipartFile
-    @Autowired
-    private HttpServletRequest request;
-    
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
+   
+	
+	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public ModelAndView save(Team team, MultipartHttpServletRequest request, Model model) throws IllegalStateException, IOException
 	{
 		Iterator<String> itr= request.getFileNames();
+		
 		// for storing the file in local system
 		while(itr.hasNext())
 		{
@@ -74,13 +75,15 @@ public class TeamForm
 			mpf.transferTo(dest);
 			team.setImage(filePath);
 		} 
+		
 		String img =mpf.getOriginalFilename();
-		team.setImg(img);	
+		team.setImg(img);
+		
 		// Calling method saveteam from UserService class
 		userService.saveteam(team);
+		
 		// calling method of UserService class and storing it in List
 		List<Team> teamed=(List<Team>) userService.getAllTeams();
-	
 		return new ModelAndView("result","teamed", teamed);
 		
 	}
@@ -89,7 +92,8 @@ public class TeamForm
 	public ModelAndView saved(Player plr, String teamName, MultipartHttpServletRequest request, Model model) throws IllegalStateException, IOException
 	{
     	Iterator<String> itr= request.getFileNames();
-		// for storing the file in local system
+		
+    	// for storing the file in local system
 		while(itr.hasNext())
 		{
 			mpf = request.getFile(itr.next());
@@ -103,22 +107,11 @@ public class TeamForm
 		String img = mpf.getOriginalFilename();
 		plr.setImg(img);
 		plr.setTeamName(teamName);
-		// Calling method saveteam from UserService class
+		// Calling method saveplayer from UserService class
 		userService.saveplayer(plr);
 		
 		// calling method of UserService class and storing it in List
-		System.out.println("team name="+plr.getTeamName());
-		System.out.println("img="+plr.getImg());
-		System.out.println("player name="+plr.getPlayerName());
-		System.out.println("batting style="+plr.getBattingstyle());
-		//System.out.println("aaaaaa"+plr.getTeamName());
 		List<Player> players = (List<Player>) userService.getAllSpPlayer(plr.getTeamName());
-		for (Player player : players) 
-		{
-			System.out.println(player);
-		}
-		
-	
 		return new ModelAndView("allplayers","players", players);
 	}
 
@@ -127,10 +120,10 @@ public class TeamForm
    	{
     	// calling method of UserService class and storing it in List
 		List<Player> players=(List<Player>) userService.getAllSpPlayer(teamName);
+		model.addAttribute("plrdd", teamName);
 		return new ModelAndView("allplayers","players", players);
    	}
 
-    
     @RequestMapping(value = "/playerdetails", method = RequestMethod.GET)
    	public ModelAndView palyerdetails(Player plr,@RequestParam(value = "playerName", required = true) String playerName,HttpServletRequest request, Model model) throws IllegalStateException, IOException
    	{
@@ -140,14 +133,22 @@ public class TeamForm
    	}
     
     
-    @RequestMapping(value = "/teamformed", method = RequestMethod.GET)
+   /* @RequestMapping(value = "/teamformed", method = RequestMethod.GET)
    	public ModelAndView teamform(Team team,@RequestParam(value = "teamName", required = true) String teamName,HttpServletRequest request, Model model) throws IllegalStateException, IOException
    	{
     	// calling method of UserService class and storing it in List
     	System.out.println(teamName);
     	List<Player> teamsss=(List<Player>) userService.getAllSpPlayer(teamName);
-		return new ModelAndView("teamform","plrr", teamName);
+		return new ModelAndView("","plrdd", teamName);
    	}
 
+    @RequestMapping(value = "/teamforms", method = RequestMethod.GET)
+   	public ModelAndView teamf(Team team, String teamName, HttpServletRequest request, Model model) throws IllegalStateException, IOException
+   	{
+    	// calling method of UserService class and storing it in List
+    	System.out.println(teamName);
+    	List<Player> teamsss=(List<Player>) userService.getAllSpPlayer(teamName);
+		return new ModelAndView("allplayers","plrdd", teamName);
+   	}*/
 
 }
